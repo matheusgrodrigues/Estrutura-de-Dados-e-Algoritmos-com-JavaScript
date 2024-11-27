@@ -62,4 +62,27 @@ console.log('typeof true:', typeof true);
 console.log('typeof [1,2,3]:', typeof [1,2,3]);
 console.log('typeof {name:John}:', typeof {name:'John'}); */
    });
+
+   it("Booleanos", () => {
+      /*
+       * objeto é sempre true.
+       * O resultado é false para +0, -0 ou NaN; caso contrário, é true
+       * O resultado é false para +0, -0 ou NaN; caso contrário, é true
+       */
+      var obj = { name: "John" };
+
+      expect(true).toBeTruthy();
+      expect(false).toBeFalsy;
+      expect(new Boolean(false)).toBeTruthy();
+      expect("").toBeFalsy();
+      expect("Packt").toBeTruthy();
+      expect(new String("")).toBeTruthy();
+      expect(1).toBeTruthy();
+      expect(-1).toBeTruthy();
+      expect(NaN).toBeFalsy();
+      expect(new Number(NaN)).toBeTruthy();
+      expect({}).toBeTruthy();
+      expect(obj).toBeTruthy();
+      expect(obj.name).toBeTruthy();
+   });
 });
