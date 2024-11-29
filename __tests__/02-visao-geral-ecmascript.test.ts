@@ -1,3 +1,6 @@
+import Book, { ITBook } from "../src/Book";
+import { circleArea, squareArea } from "../src/CalcArea";
+
 describe("Visão geral do ECMAScript 2015+ (es6)", () => {
    it("Variaveis com let e const", () => {
       var framework = "Angular";
@@ -130,35 +133,6 @@ and so is this.`);
    });
 
    describe("POO com Classes", () => {
-      class Book {
-         public title: string;
-         public pages: number;
-         public isbn: boolean;
-
-         constructor(title: string, pages: number, isbn: boolean) {
-            this.title = title;
-            this.pages = pages;
-            this.isbn = isbn;
-         }
-
-         printIsbn() {
-            return this.isbn;
-         }
-      }
-
-      class ITBook extends Book {
-         public tecnology: string;
-
-         constructor(title: string, pages: number, isbn: boolean, tecnology: string) {
-            super(title, pages, isbn);
-            this.tecnology = tecnology;
-         }
-
-         printTecnology() {
-            return this.tecnology;
-         }
-      }
-
       it("Classes", () => {
          let book = new Book("title", 1, true);
          expect(book.title).toBe("title");
@@ -207,5 +181,13 @@ and so is this.`);
       area = 3.14 * Math.pow(r, 2);
 
       area = 3.14 * r ** 2;
+   });
+
+   it("Modulos", () => {
+      const circle = circleArea(1);
+      const square = squareArea(3);
+
+      expect(circle).toBe(3.14);
+      expect(square).toBe(9);
    });
 });
