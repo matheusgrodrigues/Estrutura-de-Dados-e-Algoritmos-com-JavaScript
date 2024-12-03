@@ -155,7 +155,85 @@ describe("03 - Arrays", () => {
             });
          });
 
-         describe("Arrays bidimensionais e multidimensionais", () => {});
+         describe("Arrays bidimensionais e multidimensionais", () => {
+            const averageTemp: unknown[][] = [];
+            averageTemp[0] = [72, 75, 79, 79, 81, 81];
+            averageTemp[1] = [81, 79, 75, 75, 73, 72];
+
+            it("Medidor de temperatura", () => {
+               const averageTemp2: unknown[][] = [];
+               averageTemp2[0] = [];
+               averageTemp2[0][0] = 72;
+               averageTemp2[0][1] = 75;
+               averageTemp2[0][2] = 79;
+               averageTemp2[0][3] = 79;
+               averageTemp2[0][4] = 81;
+               averageTemp2[0][5] = 81;
+
+               averageTemp2[1] = [];
+               averageTemp2[1][0] = 81;
+               averageTemp2[1][1] = 79;
+               averageTemp2[1][2] = 75;
+               averageTemp2[1][3] = 75;
+               averageTemp2[1][4] = 73;
+               averageTemp2[1][5] = 72;
+
+               expect(averageTemp[0]).toEqual([72, 75, 79, 79, 81, 81]);
+               expect(averageTemp[1]).toEqual([81, 79, 75, 75, 73, 72]);
+               expect(averageTemp2[0]).toEqual([72, 75, 79, 79, 81, 81]);
+               expect(averageTemp2[1]).toEqual([81, 79, 75, 75, 73, 72]);
+            });
+
+            it("Iterando pelos elementos de arrays bidimensionais", () => {
+               const printMatrix = (myMatrix: unknown[][]) => {
+                  let result: number[] = [];
+
+                  for (let i = 0; i < myMatrix.length; i++) {
+                     for (let j = 0; j < myMatrix[i].length; j++) {
+                        result.push(myMatrix[i][j] as number);
+                     }
+                  }
+
+                  return result!;
+               };
+
+               expect(printMatrix(averageTemp)).toEqual([72, 75, 79, 79, 81, 81, 81, 79, 75, 75, 73, 72]);
+            });
+
+            it("Arrays multidimensionais", () => {
+               const matrix3x3x3: number[][][] = [];
+
+               for (let i = 0; i < 3; i++) {
+                  matrix3x3x3[i] = [];
+                  for (let j = 0; j < 3; j++) {
+                     matrix3x3x3[i][j] = [];
+
+                     for (let z = 0; z < 3; z++) {
+                        matrix3x3x3[i][j][z] = i + j + z;
+                     }
+                  }
+               }
+
+               const printMatrix = (matrix: number[][][]) => {
+                  let result: number[] = [];
+
+                  for (let i = 0; i < matrix.length; i++) {
+                     for (let j = 0; j < matrix[i].length; j++) {
+                        for (let z = 0; z < matrix3x3x3[i][j].length; z++) {
+                           result.push(matrix3x3x3[i][j][z]);
+                        }
+                     }
+                  }
+
+                  return result!;
+               };
+
+               expect(printMatrix(matrix3x3x3)).toEqual([
+                  0, 1, 2, 1, 2, 3, 2, 3, 4, 1, 2, 3, 2, 3, 4, 3, 4, 5, 2, 3, 4, 3, 4, 5, 4, 5, 6,
+               ]);
+               console.table(matrix3x3x3);
+            });
+         });
       });
    });
 });
