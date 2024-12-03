@@ -231,8 +231,79 @@ describe("03 - Arrays", () => {
                expect(printMatrix(matrix3x3x3)).toEqual([
                   0, 1, 2, 1, 2, 3, 2, 3, 4, 1, 2, 3, 2, 3, 4, 3, 4, 5, 2, 3, 4, 3, 4, 5, 4, 5, 6,
                ]);
-               console.table(matrix3x3x3);
             });
+
+            describe("Métodos de arrays em Javascript", () => {
+               const isEven = (x: number) => x % 2 === 0;
+
+               const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+               it("concat: Junta varios arrays e devolve uma copia dos arrays concatenados", () => {
+                  const zero = 0;
+                  const positiveNumbers = [1, 2, 3];
+                  const negativeNumbers = [-3, -2, -1];
+
+                  const numbers = negativeNumbers.concat(zero, positiveNumbers);
+
+                  expect(numbers).toEqual([...negativeNumbers, zero, ...positiveNumbers]);
+               });
+
+               it("every: itera por todos os elementos do array, verificando uma condição desejada até que [false] seja devolvido", () => {
+                  const numberIsEven = numbers.every(isEven);
+
+                  expect(numberIsEven).toBeFalsy();
+               });
+
+               it("some: itera por todos os elementos do array, verificando uma condição desejada até que [true] seja devolvido", () => {
+                  const numberIsEven = numbers.some(isEven);
+
+                  expect(numberIsEven).toBeTruthy();
+               });
+
+               it("foreach: Executa uma função especifica em cada elemento do array", () => {
+                  let result = false;
+
+                  numbers.forEach((x) => (result = isEven(x)));
+
+                  expect(result).toBeFalsy();
+               });
+
+               it("map: Cria outro array a partir de uma função que contem o critécio/condição e devolve os elementos do array que correspondam ao criterio.", () => {
+                  const myMap = numbers.map(isEven);
+
+                  expect(myMap).toEqual([
+                     false,
+                     true,
+                     false,
+                     true,
+                     false,
+                     true,
+                     false,
+                     true,
+                     false,
+                     true,
+                     false,
+                     true,
+                     false,
+                     true,
+                     false,
+                  ]);
+               });
+
+               it("filter: Cria um array com todos os elementos avaliados com true pela função especificada", () => {
+                  const evenNumbers = numbers.filter(isEven);
+
+                  expect(evenNumbers).toEqual([2, 4, 6, 8, 10, 12, 14]);
+               });
+
+               it("reduce: devolve um valor que será somado a um acumulador, o qual será devolvido depois que o metodo reduce parar de executar", () => {
+                  const numbersReduce = numbers.reduce((prev, current) => prev + current);
+
+                  expect(numbersReduce).toBe(120);
+               });
+            });
+
+            describe("ES6 e as novas funcionalidades de array", () => {});
          });
       });
    });
