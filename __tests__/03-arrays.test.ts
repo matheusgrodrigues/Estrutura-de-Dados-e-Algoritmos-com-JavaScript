@@ -385,7 +385,7 @@ describe("03 - Arrays", () => {
                expect(numbersCopy).toEqual([1, 2, 3, 4, 5, 6]);
             });
 
-            it.only("fill: preenche o array com um valor estático", () => {
+            it("fill: preenche o array com um valor estático", () => {
                const numbers = [0, 1, 2, 3, 4, 5, 6];
 
                const numbersCopy = Array.of(...numbers);
