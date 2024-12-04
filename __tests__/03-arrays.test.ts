@@ -70,7 +70,6 @@ describe("03 - Arrays", () => {
             const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
             const numbers2 = [...numbers];
-
             numbers[numbers.length] = 10;
             numbers2.push(11, 12);
 
@@ -78,7 +77,7 @@ describe("03 - Arrays", () => {
             expect(numbers2[numbers2.length - 1]).toBe(12);
          });
 
-         it("Inserindo um elemento na primeira posição: for/unshift", () => {
+         it("for/unshift: Inserindo um elemento na primeira posição", () => {
             const insertFirstPosition = (list: number[], value: number) => {
                const result: number[] = list;
 
@@ -93,7 +92,6 @@ describe("03 - Arrays", () => {
 
             const firstPosition = insertFirstPosition([1, 2, 3, 4, 5], 7);
             const firstPositionWithUnshift = [...firstPosition];
-
             firstPositionWithUnshift.unshift(7);
 
             expect(firstPosition[0]).toBe(7);
@@ -101,14 +99,14 @@ describe("03 - Arrays", () => {
          });
 
          describe("Elementos", () => {
-            it("Removendo um elemento do final do array: pop()", () => {
+            it("pop(): Removendo um elemento do final do array", () => {
                const removeLastPosition = [1, 2, 3, 4, 5, 6, 7];
                removeLastPosition.pop();
 
                expect(removeLastPosition[removeLastPosition.length - 1]).toBe(6);
             });
 
-            it("Removendo um elemento da primeira posição do array: for/shift", () => {
+            it("for/shift: Removendo um elemento da primeira posição do array", () => {
                const reIndex = (myArray: number[]) => {
                   const result: number[] = [];
 
@@ -139,7 +137,7 @@ describe("03 - Arrays", () => {
                expect(numbers2).toEqual([3]);
             });
 
-            it("Adicionando e removendo elementos de uma posição específica: delete/splice", () => {
+            it("delete/splice: Adicionando e removendo elementos de uma posição específica", () => {
                const numbers1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
                numbers1.splice(5, 3);
 
@@ -232,78 +230,201 @@ describe("03 - Arrays", () => {
                   0, 1, 2, 1, 2, 3, 2, 3, 4, 1, 2, 3, 2, 3, 4, 3, 4, 5, 2, 3, 4, 3, 4, 5, 4, 5, 6,
                ]);
             });
+         });
 
-            describe("Métodos de arrays em Javascript", () => {
-               const isEven = (x: number) => x % 2 === 0;
+         describe("Métodos de arrays em Javascript", () => {
+            const isEven = (x: number) => x % 2 === 0;
 
-               const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+            it("concat: Junta varios arrays e devolve uma copia dos arrays concatenados", () => {
+               const zero = 0;
+               const positiveNumbers = [1, 2, 3];
+               const negativeNumbers = [-3, -2, -1];
 
-               it("concat: Junta varios arrays e devolve uma copia dos arrays concatenados", () => {
-                  const zero = 0;
-                  const positiveNumbers = [1, 2, 3];
-                  const negativeNumbers = [-3, -2, -1];
+               const numbers = negativeNumbers.concat(zero, positiveNumbers);
 
-                  const numbers = negativeNumbers.concat(zero, positiveNumbers);
-
-                  expect(numbers).toEqual([...negativeNumbers, zero, ...positiveNumbers]);
-               });
-
-               it("every: itera por todos os elementos do array, verificando uma condição desejada até que [false] seja devolvido", () => {
-                  const numberIsEven = numbers.every(isEven);
-
-                  expect(numberIsEven).toBeFalsy();
-               });
-
-               it("some: itera por todos os elementos do array, verificando uma condição desejada até que [true] seja devolvido", () => {
-                  const numberIsEven = numbers.some(isEven);
-
-                  expect(numberIsEven).toBeTruthy();
-               });
-
-               it("foreach: Executa uma função especifica em cada elemento do array", () => {
-                  let result = false;
-
-                  numbers.forEach((x) => (result = isEven(x)));
-
-                  expect(result).toBeFalsy();
-               });
-
-               it("map: Cria outro array a partir de uma função que contem o critécio/condição e devolve os elementos do array que correspondam ao criterio.", () => {
-                  const myMap = numbers.map(isEven);
-
-                  expect(myMap).toEqual([
-                     false,
-                     true,
-                     false,
-                     true,
-                     false,
-                     true,
-                     false,
-                     true,
-                     false,
-                     true,
-                     false,
-                     true,
-                     false,
-                     true,
-                     false,
-                  ]);
-               });
-
-               it("filter: Cria um array com todos os elementos avaliados com true pela função especificada", () => {
-                  const evenNumbers = numbers.filter(isEven);
-
-                  expect(evenNumbers).toEqual([2, 4, 6, 8, 10, 12, 14]);
-               });
-
-               it("reduce: devolve um valor que será somado a um acumulador, o qual será devolvido depois que o metodo reduce parar de executar", () => {
-                  const numbersReduce = numbers.reduce((prev, current) => prev + current);
-
-                  expect(numbersReduce).toBe(120);
-               });
+               expect(numbers).toEqual([...negativeNumbers, zero, ...positiveNumbers]);
             });
 
-            describe("ES6 e as novas funcionalidades de array", () => {});
+            it("every: itera por todos os elementos do array, verificando uma condição desejada até que [false] seja devolvido", () => {
+               const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+               const numberIsEven = numbers.every(isEven);
+
+               expect(numberIsEven).toBeFalsy();
+            });
+
+            it("some: itera por todos os elementos do array, verificando uma condição desejada até que [true] seja devolvido", () => {
+               const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+               const numberIsEven = numbers.some(isEven);
+
+               expect(numberIsEven).toBeTruthy();
+            });
+
+            it("foreach: Executa uma função especifica em cada elemento do array", () => {
+               const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+               let result = false;
+
+               numbers.forEach((x) => (result = isEven(x)));
+
+               expect(result).toBeFalsy();
+            });
+
+            it("map: Cria outro array a partir de uma função que contem o critécio/condição e devolve os elementos do array que correspondam ao criterio.", () => {
+               const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+               const myMap = numbers.map(isEven);
+
+               expect(myMap).toEqual([
+                  false,
+                  true,
+                  false,
+                  true,
+                  false,
+                  true,
+                  false,
+                  true,
+                  false,
+                  true,
+                  false,
+                  true,
+                  false,
+                  true,
+                  false,
+               ]);
+            });
+
+            it("filter: Cria um array com todos os elementos avaliados com true pela função especificada", () => {
+               const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+               const evenNumbers = numbers.filter(isEven);
+
+               expect(evenNumbers).toEqual([2, 4, 6, 8, 10, 12, 14]);
+            });
+
+            it("reduce: devolve um valor que será somado a um acumulador, o qual será devolvido depois que o metodo reduce parar de executar", () => {
+               const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+               const numbersReduce = numbers.reduce((prev, current) => prev + current);
+
+               expect(numbersReduce).toBe(120);
+            });
+         });
+
+         describe("ES6 e as novas funcionalidades de array", () => {
+            it("for...of: Iterando com o laço for...of", () => {
+               const numbers = [1, 2, 3];
+               let result: string;
+
+               for (const n of numbers) {
+                  n % 2 === 0 ? (result = "even") : (result = "odd");
+               }
+
+               expect(result!).toBe("odd");
+            });
+
+            it("for...in: Itera sobre listas e retorna uma lista de chaves do objeto que está sendo iterado", () => {
+               const numbers = [1, 2, 3];
+               let result: number;
+
+               for (const n of numbers) {
+                  result = n;
+               }
+
+               expect(result!).toBe(3);
+            });
+
+            it("@@iterator: devolve um objeto que contém os pares chave/valor do array/ pode ser chamado sincronamente para obter a chave/valor dos elementos do array", () => {
+               const numbers = [1, 2, 3];
+               const iterator = numbers[Symbol.iterator]();
+
+               iterator.next();
+               iterator.next();
+               iterator.next();
+
+               expect(iterator.next()).toEqual({ done: true, value: undefined });
+            });
+
+            it("entries: devolve @@iterator, que contém pares chave/valor", () => {
+               const numbers = [1, 2, 3];
+               const aEntries = numbers.entries();
+
+               let forIterator: [number, number];
+
+               for (const value of aEntries) {
+                  forIterator = value;
+               }
+
+               expect(aEntries.next().value!).toBe(undefined);
+               expect(forIterator!).toEqual([2, 3]);
+            });
+
+            it("keys: devolve @@iterator, contendo as chaves do array", () => {
+               const numbers = [1, 2, 3];
+               const aKeys = numbers.keys();
+
+               expect(aKeys.next()).toEqual({ value: 0, done: false });
+            });
+
+            it("values: devolve @@iterator, contendo os valores do array.", () => {
+               const numbers = [1, 2, 3];
+               const aValues = numbers.values();
+
+               expect(aValues.next()).toEqual({ value: 1, done: false });
+            });
+
+            it("from: cria um novo array a apartir de um array existente", () => {
+               const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+               const evens = Array.from(numbers, (x) => x % 2 === 0);
+
+               expect(evens).toEqual([false, true, false, true, false, true, false, true, false, true]);
+            });
+
+            it("Array.of: cria um novo array a partir dos argumentos passados para o método", () => {
+               const numbers3 = Array.of(1); // const numbers3 = [1];
+               const numbers4 = Array.of(1, 2, 3, 4, 5, 6); // const numbers4 = [1,2,3,4,5,6];
+               const numbersCopy = Array.of(...numbers4); // Array.from(numbers4);
+
+               expect(numbers3).toEqual([1]);
+               expect(numbers4).toEqual([1, 2, 3, 4, 5, 6]);
+               expect(numbersCopy).toEqual([1, 2, 3, 4, 5, 6]);
+            });
+
+            it.only("fill: preenche o array com um valor estático", () => {
+               const numbers = [0, 1, 2, 3, 4, 5, 6];
+
+               const numbersCopy = Array.of(...numbers);
+               numbersCopy.fill(0);
+
+               const numbersCopy2 = Array.of(...numbers);
+               numbersCopy2.fill(2, 1);
+
+               const numbersCopy3 = Array.of(...numbers);
+               numbersCopy3.fill(1, 3, 5);
+
+               const ones = Array(6).fill(1);
+
+               expect(numbersCopy).toEqual([0, 0, 0, 0, 0, 0, 0]);
+               expect(numbersCopy2).toEqual([0, 2, 2, 2, 2, 2, 2]);
+               expect(numbersCopy3).toEqual([0, 1, 2, 1, 1, 5, 6]);
+               expect(ones).toEqual([1, 1, 1, 1, 1, 1]);
+            });
+
+            it.todo("copyWithin: copia uma sequencia de valores do array na posição de um indice de inicio");
+
+            describe("Ordenando elementos", () => {
+               it.todo("Ordenação personalizada");
+               it.todo("Ordenando strings");
+               it.todo("Pesquisa");
+            });
+
+            describe("ECMAScript 2015", () => {
+               it.todo(
+                  "find: busca um elemento no array, dada uma condição desejada, e devolve o elemento caso seja encontrado"
+               );
+               it.todo(
+                  "findIndex: busca um elemento no array, dada uma condição desejada, e devolve o indice do elemento caso seja encontrado"
+               );
+               it.todo("includes: devolve true caso um elemento seja encontrado no array, e false caso contário");
+               it.todo("Convertendo um array me uma string");
+               it.todo("Classe TypedArray");
+               it.todo("Arrays em TypeScript");
+            });
          });
       });
    });
