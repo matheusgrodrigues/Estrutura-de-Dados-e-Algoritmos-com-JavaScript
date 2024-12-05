@@ -506,7 +506,7 @@ describe("03 - Arrays", () => {
                });
             });
 
-            describe.only("ECMAScript 2015", () => {
+            describe("ECMAScript 2015", () => {
                const multipleOf13 = (element: number, index: number, array: number[]) => element % 13 === 0;
 
                it("find: busca um elemento no array, dada uma condição desejada, e devolve o elemento caso seja encontrado", () => {
@@ -528,9 +528,26 @@ describe("03 - Arrays", () => {
                   expect(numbers.includes(20)).toBeFalsy();
                   expect(numbers2.includes(4, 6)).toBeFalsy();
                });
-               it.todo("Convertendo um array me uma string");
-               it.todo("Classe TypedArray");
-               it.todo("Arrays em TypeScript");
+
+               it("toString: convertendo um array me uma string", () => {
+                  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+                  expect(numbers.toString()).toBe("1,2,3,4,5,6,7,8,9,10,11,12,13,14,15");
+                  expect(numbers.join("-")).toBe("1-2-3-4-5-6-7-8-9-10-11-12-13-14-15");
+               });
+
+               it("Classe TypedArray", () => {
+                  const length = 5;
+                  const int16 = new Int16Array(length);
+                  const array16 = [];
+                  array16.length = length;
+
+                  for (let i = 0; i < length; i++) {
+                     int16[i] = i + 1;
+                  }
+
+                  expect(int16.toString()).toEqual([1, 2, 3, 4, 5].toString());
+               });
             });
          });
       });
