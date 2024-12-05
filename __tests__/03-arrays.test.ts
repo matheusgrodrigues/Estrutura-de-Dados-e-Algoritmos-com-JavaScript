@@ -417,7 +417,7 @@ describe("03 - Arrays", () => {
                expect(copyArray2).toEqual([1, 4, 5, 4, 5, 6]);
             });
 
-            describe.only("Ordenando elementos", () => {
+            describe("Ordenando elementos", () => {
                it("reverse: deixa os elementos do array fora de ordemm o ultimo item sera o primeiro e vice-versa", () => {
                   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
                   numbers.reverse();
@@ -506,10 +506,15 @@ describe("03 - Arrays", () => {
                });
             });
 
-            describe("ECMAScript 2015", () => {
-               it.todo(
-                  "find: busca um elemento no array, dada uma condição desejada, e devolve o elemento caso seja encontrado"
-               );
+            describe.only("ECMAScript 2015", () => {
+               it("find: busca um elemento no array, dada uma condição desejada, e devolve o elemento caso seja encontrado", () => {
+                  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+                  const multipleOf13 = (element: number, index: number, array: number[]) => element % 13 === 0;
+
+                  expect(numbers.find(multipleOf13)).toBe(13);
+                  expect(numbers.findIndex(multipleOf13)).toBe(12);
+               });
                it.todo(
                   "findIndex: busca um elemento no array, dada uma condição desejada, e devolve o indice do elemento caso seja encontrado"
                );
