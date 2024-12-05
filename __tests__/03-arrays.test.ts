@@ -476,6 +476,8 @@ describe("03 - Arrays", () => {
 
                it("Ordenando strings", () => {
                   const names = ["Ana", "ana", "john", "John"];
+                  const names2 = ["Maéve", "Maeve"];
+
                   names.sort((a: string, b: string) => {
                      if (a.toLocaleLowerCase() < b.toLocaleLowerCase()) {
                         return -1;
@@ -488,9 +490,20 @@ describe("03 - Arrays", () => {
                      return 0;
                   });
 
+                  names2.sort((a: string, b: string) => a.localeCompare(b));
+
                   expect(names).toEqual(["Ana", "ana", "john", "John"]);
+                  expect(names2).toEqual(["Maeve", "Maéve"]);
                });
-               it.todo("Pesquisa");
+
+               it("Pesquisa", () => {
+                  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                  numbers.push(10);
+
+                  expect(numbers.indexOf(10)).toBe(9);
+                  expect(numbers.indexOf(100)).toBe(-1);
+                  expect(numbers.lastIndexOf(10)).toBe(10);
+               });
             });
 
             describe("ECMAScript 2015", () => {
