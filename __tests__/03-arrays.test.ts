@@ -417,7 +417,21 @@ describe("03 - Arrays", () => {
                expect(copyArray2).toEqual([1, 4, 5, 4, 5, 6]);
             });
 
-            describe("Ordenando elementos", () => {
+            describe.only("Ordenando elementos", () => {
+               it("reverse: deixa os elementos do array fora de ordemm o ultimo item sera o primeiro e vice-versa", () => {
+                  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+                  numbers.reverse();
+
+                  expect(numbers).toEqual([15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
+               });
+
+               it("sort: deixa os elementos em ordem lexicográfica e pressupoe que todos os elementos sao strings", () => {
+                  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+                  numbers.sort((a, b) => a - b);
+
+                  expect(numbers).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+               });
+
                it.todo("Ordenação personalizada");
                it.todo("Ordenando strings");
                it.todo("Pesquisa");
