@@ -405,7 +405,17 @@ describe("03 - Arrays", () => {
                expect(ones).toEqual([1, 1, 1, 1, 1, 1]);
             });
 
-            it.todo("copyWithin: copia uma sequencia de valores do array na posição de um indice de inicio");
+            it("copyWithin: copia uma sequencia de valores do array na posição de um indice de inicio", () => {
+               const numbers = [1, 2, 3, 4, 5, 6];
+               const copyArray = [...numbers];
+               copyArray.copyWithin(0, 3);
+
+               const copyArray2 = [...numbers];
+               copyArray2.copyWithin(1, 3, 5);
+
+               expect(copyArray).toEqual([4, 5, 6, 4, 5, 6]);
+               expect(copyArray2).toEqual([1, 4, 5, 4, 5, 6]);
+            });
 
             describe("Ordenando elementos", () => {
                it.todo("Ordenação personalizada");
