@@ -507,18 +507,27 @@ describe("03 - Arrays", () => {
             });
 
             describe.only("ECMAScript 2015", () => {
+               const multipleOf13 = (element: number, index: number, array: number[]) => element % 13 === 0;
+
                it("find: busca um elemento no array, dada uma condição desejada, e devolve o elemento caso seja encontrado", () => {
                   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-                  const multipleOf13 = (element: number, index: number, array: number[]) => element % 13 === 0;
-
                   expect(numbers.find(multipleOf13)).toBe(13);
+               });
+               it("findIndex: busca um elemento no array, dada uma condição desejada, e devolve o indice do elemento caso seja encontrado", () => {
+                  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
                   expect(numbers.findIndex(multipleOf13)).toBe(12);
                });
-               it.todo(
-                  "findIndex: busca um elemento no array, dada uma condição desejada, e devolve o indice do elemento caso seja encontrado"
-               );
-               it.todo("includes: devolve true caso um elemento seja encontrado no array, e false caso contário");
+
+               it("includes: devolve true caso um elemento seja encontrado no array, e false caso contário", () => {
+                  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+                  const numbers2 = [7, 6, 5, 4, 3, 2, 1];
+
+                  expect(numbers.includes(15)).toBeTruthy();
+                  expect(numbers.includes(20)).toBeFalsy();
+                  expect(numbers2.includes(4, 6)).toBeFalsy();
+               });
                it.todo("Convertendo um array me uma string");
                it.todo("Classe TypedArray");
                it.todo("Arrays em TypeScript");
