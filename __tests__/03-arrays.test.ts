@@ -473,7 +473,23 @@ describe("03 - Arrays", () => {
                      },
                   ]);
                });
-               it.todo("Ordenando strings");
+
+               it("Ordenando strings", () => {
+                  const names = ["Ana", "ana", "john", "John"];
+                  names.sort((a: string, b: string) => {
+                     if (a.toLocaleLowerCase() < b.toLocaleLowerCase()) {
+                        return -1;
+                     }
+
+                     if (a.toLocaleLowerCase() > b.toLocaleLowerCase()) {
+                        return 1;
+                     }
+
+                     return 0;
+                  });
+
+                  expect(names).toEqual(["Ana", "ana", "john", "John"]);
+               });
                it.todo("Pesquisa");
             });
 
