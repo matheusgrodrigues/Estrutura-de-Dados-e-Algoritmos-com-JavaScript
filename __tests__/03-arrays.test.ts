@@ -432,7 +432,47 @@ describe("03 - Arrays", () => {
                   expect(numbers).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
                });
 
-               it.todo("Ordenação personalizada");
+               it("Ordenação personalizada", () => {
+                  interface Friends {
+                     name: string;
+                     age: number;
+                  }
+
+                  const friends: Friends[] = [
+                     { name: "John", age: 30 },
+                     { name: "Ana", age: 20 },
+                     { name: "Chris", age: 25 },
+                  ];
+
+                  const comparePerson = (a: Friends, b: Friends) => {
+                     if (a.age < b.age) {
+                        return -1;
+                     }
+
+                     if (a.age > b.age) {
+                        return 1;
+                     }
+
+                     return 0;
+                  };
+
+                  const sortFriends = friends.sort(comparePerson);
+
+                  expect(sortFriends).toEqual([
+                     {
+                        age: 20,
+                        name: "Ana",
+                     },
+                     {
+                        age: 25,
+                        name: "Chris",
+                     },
+                     {
+                        age: 30,
+                        name: "John",
+                     },
+                  ]);
+               });
                it.todo("Ordenando strings");
                it.todo("Pesquisa");
             });
