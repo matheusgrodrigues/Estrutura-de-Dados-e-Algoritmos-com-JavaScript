@@ -1,6 +1,6 @@
 import StackArray from "../../src/04-pilhas/StackArray";
 
-describe("StackArray", () => {
+describe("04 - Pilhas: StackArray", () => {
    it("Deve retornar o array atual", () => {
       const stack = new StackArray();
 

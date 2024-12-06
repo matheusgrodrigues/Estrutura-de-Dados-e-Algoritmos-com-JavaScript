@@ -1,6 +1,6 @@
 import StackObject from "../../src/04-pilhas/StackObject";
 
-describe("StackObject", () => {
+describe("04 - Pilhas: StackObject", () => {
    it("Deve retornar a stack", () => {
       const stack = new StackObject();
 

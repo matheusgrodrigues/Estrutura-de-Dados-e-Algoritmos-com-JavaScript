@@ -6,7 +6,7 @@ class StackWeakMap {
    }
 
    get() {
-      return this.items;
+      return this.items.get(this);
    }
 
    push(element: number) {
