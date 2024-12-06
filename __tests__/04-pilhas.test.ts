@@ -1,4 +1,6 @@
 import StackArray from "../src/04-pilhas/StackArray";
+import StackObject from "../src/04-pilhas/StackObject";
+import StackWeakMap from "../src/04-pilhas/StackWealMap";
 
 describe("04 - Pilhas", () => {
    describe("Criação de uma biblioteca de estruturas de dados e algoritmos JavaScript", () => {
@@ -51,67 +53,7 @@ describe("04 - Pilhas", () => {
          });
       });
 
-      describe.only("Criando uma classe JavaScript StackArray baseada em objeto", () => {
-         class StackObject {
-            private count: number;
-            private items: Record<number, number>;
-
-            constructor() {
-               this.count = 0;
-               this.items = {};
-            }
-
-            get() {
-               return this.items;
-            }
-
-            push(element: number) {
-               this.items[this.count] = element;
-               this.count++;
-            }
-
-            isEmpty() {
-               return this.count === 0;
-            }
-
-            pop() {
-               if (this.isEmpty()) return undefined;
-
-               this.count--;
-
-               const result = this.items[this.count];
-               delete this.items[this.count];
-
-               return result;
-            }
-
-            peek() {
-               if (this.isEmpty()) return undefined;
-
-               return this.items[this.count - 1];
-            }
-
-            clear() {
-               while (!this.isEmpty()) this.pop();
-            }
-
-            size() {
-               return this.count;
-            }
-
-            toString() {
-               if (this.isEmpty()) return "";
-
-               let objString = `${this.items[0]}`;
-
-               for (let i = 0; i < this.count; i++) {
-                  objString = `${objString},${this.items[i]}`;
-               }
-
-               return objString;
-            }
-         }
-
+      describe("Criando uma classe JavaScript StackArray baseada em objeto", () => {
          it("Push de elementos na pilha", () => {
             const stack = new StackObject();
 
@@ -172,10 +114,13 @@ describe("04 - Pilhas", () => {
             expect(stack.toString()).toEqual("5,5");
          });
 
-         it.todo("Proposta para campos de classe na ECMAScript");
-         it.todo("Resolvendo problemas usando pilhas");
-         it.todo("Convertendo números decimais para binários");
-         it.todo("Algoritmo conversor de base");
+         it("Classes ES2015 com WeakMap", () => {
+            const stack = new StackWeakMap();
+
+            stack.push(5);
+
+            expect(stack.peek()).toBe(5);
+         });
       });
    });
 });
