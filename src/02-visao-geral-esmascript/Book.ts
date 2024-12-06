@@ -13,16 +13,3 @@ export default class Book {
       return this.isbn;
    }
 }
-
-export class ITBook extends Book {
-   public tecnology: string;
-
-   constructor(title: string, pages: number, isbn: boolean, tecnology: string) {
-      super(title, pages, isbn);
-      this.tecnology = tecnology;
-   }
-
-   printTecnology() {
-      return this.tecnology;
-   }
-}

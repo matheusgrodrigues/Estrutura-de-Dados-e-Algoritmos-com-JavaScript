@@ -1,5 +1,6 @@
-import Book, { ITBook } from "../src/02-visao-geral-esmascript/Book";
-import { circleArea, squareArea } from "../src/02-visao-geral-esmascript/CalcArea";
+import Book from "../../src/02-visao-geral-esmascript/Book";
+import ITBook from "../../src/02-visao-geral-esmascript/ITBook";
+import { circleArea, squareArea } from "../../src/02-visao-geral-esmascript/CalcArea";
 
 describe("Visão geral do ECMAScript 2015+ (es6)", () => {
    it("Variaveis com let e const", () => {
