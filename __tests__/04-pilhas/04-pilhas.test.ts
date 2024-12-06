@@ -1,6 +1,6 @@
-import StackArray from "../src/04-pilhas/StackArray";
-import StackObject from "../src/04-pilhas/StackObject";
-import StackWeakMap from "../src/04-pilhas/StackWeakMap";
+import StackArray from "../../src/04-pilhas/StackArray";
+import StackObject from "../../src/04-pilhas/StackObject";
+import StackWeakMap from "../../src/04-pilhas/StackWeakMap";
 
 describe("04 - Pilhas", () => {
    describe("Criação de uma biblioteca de estruturas de dados e algoritmos JavaScript", () => {
