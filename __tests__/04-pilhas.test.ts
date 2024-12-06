@@ -172,10 +172,6 @@ describe("04 - Pilhas", () => {
             expect(stack.toString()).toEqual("5,5");
          });
 
-         it.todo("Protegendo os elementos internos da estrutura de dados");
-         it.todo("Converção de nomenclatura com underscore");
-         it.todo("Classes ES2015 com símbolos no escopo");
-         it.todo("Classes ES2015 com WeakMap");
          it.todo("Proposta para campos de classe na ECMAScript");
          it.todo("Resolvendo problemas usando pilhas");
          it.todo("Convertendo números decimais para binários");

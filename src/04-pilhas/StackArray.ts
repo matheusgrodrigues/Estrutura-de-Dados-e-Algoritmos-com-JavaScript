@@ -1,8 +1,8 @@
 class StackArray {
-   private items: number[];
+   private items = new WeakMap();
 
    constructor() {
-      this.items = [];
+      this.items.set(this, []);
    }
 
    get() {
@@ -10,27 +10,31 @@ class StackArray {
    }
 
    push(element: number[]) {
-      this.items.push(...element);
+      this.items.get(this).push(...element);
    }
 
    pop() {
-      return this.items.pop();
+      const s = this.items.get(this);
+      const r = s.pop();
+      return r;
    }
 
    peek() {
-      return this.items[this.items.length - 1];
+      const getItems = this.items.get(this);
+
+      return getItems.get(this)[getItems.length - 1];
    }
 
    isEmpty() {
-      return this.items.length === 0;
+      return this.items.get(this).length === 0;
    }
 
    clear() {
-      this.items = [];
+      this.items.set(this, []);
    }
 
    size() {
-      return this.items.length;
+      return this.items.get(this).length;
    }
 }
 
