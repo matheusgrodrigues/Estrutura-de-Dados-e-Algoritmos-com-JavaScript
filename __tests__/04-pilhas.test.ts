@@ -121,6 +121,11 @@ describe("04 - Pilhas", () => {
 
             expect(stack.peek()).toBe(5);
          });
+
+         describe("Resolvendo problemas usando pilhas", () => {
+            it.todo("Convertendo números decimais para binários");
+            it.todo("Algoritmo conversor de base");
+         });
       });
    });
 });
