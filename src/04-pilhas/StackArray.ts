@@ -1,4 +1,4 @@
-class Stack {
+class StackArray {
    private items: number[];
 
    constructor() {
@@ -34,4 +34,4 @@ class Stack {
    }
 }
 
-export default Stack;
+export default StackArray;
