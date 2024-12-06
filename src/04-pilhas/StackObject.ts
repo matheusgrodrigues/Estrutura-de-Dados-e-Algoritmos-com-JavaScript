@@ -48,10 +48,10 @@ class StackObject {
    toString() {
       if (this.isEmpty()) return "";
 
-      let objString = `${this.items[0]}`;
+      let objString = ``;
 
       for (let i = 0; i < this.count; i++) {
-         objString = `${objString},${this.items[i]}`;
+         objString = `${this.items[0]},${this.items[i]}`;
       }
 
       return objString;
