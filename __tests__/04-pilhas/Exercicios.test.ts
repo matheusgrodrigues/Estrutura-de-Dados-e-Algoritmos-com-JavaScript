@@ -1,4 +1,4 @@
-import utils from "../../src/04-pilhas/utils";
+import utils from "../../src/04-pilhas/Exercicios";
 
 describe("04 - Pilhas: Resolvendo problemas usando pilhas", () => {
    it("Convertendo números decimais para binários", () => {
