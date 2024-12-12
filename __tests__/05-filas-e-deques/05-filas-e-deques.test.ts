@@ -1,7 +1,28 @@
+import Queue from "../../src/05-filas-e-deques/Queue";
+
 describe("05 - Filas e Deques", () => {
    describe("Criando a classe Queue", () => {
-      it.todo("Inserção de elementos na fila");
-      it.todo("Remoção de elementos da fila");
+      it("Inserção de elementos na fila", () => {
+         const queue = new Queue();
+
+         queue.enqueue(1);
+         queue.enqueue(2);
+         queue.enqueue(3);
+
+         expect(queue.items).toEqual({ 0: 1, 1: 2, 2: 3 });
+      });
+
+      it.only("Remoção de elementos da fila", () => {
+         const queue = new Queue();
+
+         queue.enqueue(1);
+         queue.enqueue(2);
+         queue.enqueue(3);
+
+         queue.dequeue();
+
+         expect(queue.items).toEqual({ 1: 2, 2: 3 });
+      });
       it.todo("Dando uma espiada no elemento que está na frente da fila");
       it.todo("Verificando se a pilha está vazia e o seu tamanho");
       it.todo("Limpando a fila");
