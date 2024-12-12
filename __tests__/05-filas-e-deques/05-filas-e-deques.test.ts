@@ -23,6 +23,7 @@ describe("05 - Filas e Deques", () => {
 
          expect(queue.items).toEqual({ 1: 2, 2: 3 });
       });
+
       it.todo("Dando uma espiada no elemento que está na frente da fila");
       it.todo("Verificando se a pilha está vazia e o seu tamanho");
       it.todo("Limpando a fila");
