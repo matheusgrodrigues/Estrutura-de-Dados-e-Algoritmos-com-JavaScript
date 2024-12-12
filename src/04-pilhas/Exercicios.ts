@@ -1,6 +1,6 @@
 import StackArray from "./StackArray";
 
-const utils = {
+const exercicios = {
    decimalToBinary: (decNumber: number) => {
       const remStack = new StackArray();
       let number = decNumber;
@@ -46,4 +46,4 @@ const utils = {
    },
 };
 
-export default utils;
+export default exercicios;
