@@ -136,9 +136,4 @@ describe("05 - Filas e Deques", () => {
          expect(deque.toString()).toBe("John, Jack");
       });
    });
-
-   describe("Resolvendo problemas usando filas e deques", () => {
-      it.todo("Fila circular - Batata Quente");
-      it.todo("Verificador de palíndromo");
-   });
 });

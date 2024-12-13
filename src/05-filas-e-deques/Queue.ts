@@ -1,7 +1,7 @@
-class Queue {
+class Queue<T> {
    private count: number;
    private lowestCount: number;
-   public items: { [key: number]: number };
+   public items: { [key: number]: T };
 
    constructor() {
       this.count = 0;
@@ -9,7 +9,7 @@ class Queue {
       this.items = {};
    }
 
-   enqueue(element: number) {
+   enqueue(element: T) {
       this.items[this.count] = element;
       this.count++;
    }
