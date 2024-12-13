@@ -12,7 +12,7 @@ describe("Resolvendo problemas usando filas e deques", () => {
       expect(winner).toBe("John");
    });
 
-   it.only("Verificador de palíndromo", () => {
+   it("Verificador de palíndromo", () => {
       expect(ExerciciosFilasDeques.palindromeChecker("a")).toBeTruthy();
       expect(ExerciciosFilasDeques.palindromeChecker("aa")).toBeTruthy();
       expect(ExerciciosFilasDeques.palindromeChecker("kayak")).toBeTruthy();
